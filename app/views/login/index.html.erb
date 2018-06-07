@@ -1,0 +1,14 @@
+<div class="spacer15"></div>
+<div class="spacer15"></div>
+
+<div class="text-center">
+  <%= bootstrap_form_tag  url: "/login", method: :post do |f| %>
+    <div style="margin-left:40%;margin-right:40%;">
+      <%= f.text_field :email, label: "Email" %>
+    </div>
+     <div style="margin-left:40%;margin-right:40%;">
+      <%= f.password_field :password, label: "Password" %>
+    </div>
+    <%= f.submit "Login" %>
+  <% end %>
+</div>
