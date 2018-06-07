@@ -26,7 +26,7 @@
         </div>
         <div class="spacer15"></div>
         <div style="text-align:center; margin-bottom:-40px; position:relative; z-index:10;">
-            <input id="searchTextField"  type="text" size="50">         
+            <input id="searchTextField"  type="text" size="50">
         </div>
 
         <div>
@@ -68,10 +68,10 @@
             handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
                 handler.getMap().setZoom(10);
                 handler.map.centerOn({ lat: 55.77666, lng: 49.16339 });
-                
+
                 handler.getMap().addListener('click', function(e) {
                     clearForm();
-                  
+
                     if (lastPin != null){
                         handler.removeMarker(lastPin);
                     }
@@ -196,13 +196,13 @@
                         if (elems[i].data.id == place.id){
                             document.getElementById('placesScroll').removeChild(elems[i]);
                             break;
-                        }                        
+                        }
                     }
                     for (var i = 0; i < allMarkers.length; i++){
                         if (allMarkers[i].serviceObject.data.id == place.id){
                             allMarkers[i].setMap(null);
                             break;
-                        }                        
+                        }
                     }
                     clearForm();
 
@@ -220,7 +220,7 @@
                 if (obj.cover_id != null){
                     src=`http://104.40.181.0:3000/images/${obj.cover_id}/pure`;
                 }
-                var infowindow = 
+                var infowindow =
                         `
                         <div>
                             <div style="margin-left: 20px;">
@@ -238,7 +238,7 @@
                 markers = handler.addMarkers([
                      {
                         'lat': obj.lat,
-                        'lng': obj.lng, 
+                        'lng': obj.lng,
                         'infowindow': infowindow
                     }
                 ]);
@@ -264,6 +264,8 @@
                     document.getElementById('placeImage').src = document.getElementById('placeImage').alt;
                 }
 
+                base64 = null;
+
                 selectItems(document.getElementById('placeCategories'), place.categories);
 
                 document.getElementById('createButton').onclick = function(){
@@ -280,7 +282,7 @@
                 document.getElementById('placeScore').value = null
                 document.getElementById('placeImage').src = document.getElementById('placeImage').alt;
                 document.getElementById('deleteButton').style.display = 'none';
-                    
+
                 document.getElementById('createButton').onclick = function(){
                     create();
                 }
@@ -351,7 +353,7 @@
             function selectItems(select, stringArray) {
                 var count = 0, i;
                 for(i = 0; i < select.options.length; i += 1) {
-                    select.options[i].selected = false;    
+                    select.options[i].selected = false;
                 }
                 for(count = 0; count < stringArray.length; count += 1) {
                     for(i = 0; i < select.options.length; i += 1) {
@@ -400,7 +402,7 @@
         <div class="btn-toolbar">
         <input type="file" id="fileHidden" onchange="imageSelected()">
         <%= button_tag "Save", {type: 'button', id: 'createButton', onclick: "create()", class: 'btn btn-success', style: 'width: 100px;'} %>
-        <%= button_tag "Delete", {type: 'button', id: 'deleteButton', onclick: "destroy()", class: 'btn btn-danger', style: 'width: 100px; display:none;'} %>       
+        <%= button_tag "Delete", {type: 'button', id: 'deleteButton', onclick: "destroy()", class: 'btn btn-danger', style: 'width: 100px; display:none;'} %>
         </div>
         </div>
         <div class="spacer15"></div>
